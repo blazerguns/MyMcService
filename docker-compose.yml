@@ -1,0 +1,32 @@
+version: '2'
+services:
+  api:
+    build:
+      context: './api'
+    ports:
+      - 3000:3000
+    links:
+      - "identity_server:iserv"
+      - "resource_backend:rserv"
+      - "thirdparty_backend:tserv"
+      - "corebanking_backend:cserv"
+  identity_server:
+    build:
+      context: './identity_backend'
+  resource_backend:
+    build:
+      context: './resources_backend'
+    links:
+      - "identity_server:iserv"
+  thirdparty_backend:
+    build:
+      context: './thirdparty_backend'
+    links:
+      - "identity_server:iserv"
+    environment:
+      - TZ=UTC
+  corebanking_backend:
+    build:
+      context: './corebanking_backend'
+    links:
+      - "identity_server:iserv"
