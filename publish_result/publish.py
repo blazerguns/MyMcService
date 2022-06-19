@@ -4,8 +4,7 @@ import json
 import requests
 
 def publish():
-   branch = sys.argv[1]
-   pullid = sys.argv[2]
+
    print("The building branch is " + os.environ.get("BRANCH", "trainingapp.log"))
    pullid = "1"
    payload = {
