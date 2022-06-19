@@ -7,9 +7,8 @@ def publish():
 
    branch = os.environ.get("BRANCH", "")
    token = os.environ.get("TOKEN", "")
-   print("Branch " + branch + " Token " + token + "Keys " + os.environ.get("GHKEYS", "NOTFOUND"))
-   for key, val in os.environ.items():
-      print(key + " " + val)
+   print("Branch " + branch + " Token " + token)
+
    pullid = "1"
    payload = {
       "body": "First Header | Second Header\n------------ | -------------\nContent from cell 1 | Content from cell 2\nContent in the first column | Content in the second column"
