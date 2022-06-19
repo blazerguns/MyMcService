@@ -6,7 +6,7 @@ import requests
 def publish():
 
    branch = os.environ.get("BRANCH", "")
-   token = os.environ.get("GHKEYS", "")
+   token = os.environ.get("TOKEN", "")
    print("The token is " + token)
    pullid = "1"
    payload = {
