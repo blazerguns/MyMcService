@@ -5,7 +5,9 @@ import requests
 
 def publish():
 
-   print("The building branch is " + os.environ.get("BRANCH", "trainingapp.log"))
+   branch = os.environ.get("BRANCH", "")
+   token = os.environ.get("TOKEN", "")
+   print("The token is " + token)
    pullid = "1"
    payload = {
       "body": "First Header | Second Header\n------------ | -------------\nContent from cell 1 | Content from cell 2\nContent in the first column | Content in the second column"
@@ -15,7 +17,7 @@ def publish():
                      data=json.dumps(payload),
                      headers={'Content-Type': 'application/json',
                               'Accept': 'application/vnd.github.v3.raw+json',
-                              'Authorization': 'token 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'})
+                              'Authorization': 'token {val}'.format(val=token)})
       print("The response is sent")
    except requests.exceptions.RequestException:
          print("Error at resource check")
