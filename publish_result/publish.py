@@ -1,11 +1,12 @@
 import sys
+import os
 import json
 import requests
 
 def publish():
    branch = sys.argv[1]
    pullid = sys.argv[2]
-   print("The building branch is " + branch)
+   print("The building branch is " + os.environ.get("BRANCH", "trainingapp.log"))
    pullid = "1"
    payload = {
       "body": "First Header | Second Header\n------------ | -------------\nContent from cell 1 | Content from cell 2\nContent in the first column | Content in the second column"
