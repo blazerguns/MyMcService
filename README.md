@@ -1,4 +1,4 @@
-# HTTP Requests — you are (probably) doing it wrong
+# HTTP Requests — you are (probably) doing it wrong. I mean it.
 ## Code Example
 ![Cover Photo](./cover.png)
 
