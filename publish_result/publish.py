@@ -5,6 +5,8 @@ import requests
 def publish():
    branch = sys.argv[1]
    pullid = sys.argv[2]
+   print("The building branch is " + branch)
+   pullid = "1"
    payload = {
       "body": "First Header | Second Header\n------------ | -------------\nContent from cell 1 | Content from cell 2\nContent in the first column | Content in the second column"
    }
