@@ -6,6 +6,7 @@ LABEL description "Training Application"
 COPY requirements.txt requirements.txt
 RUN pip install -r ./requirements.txt
 COPY *.py /opt/app/
+COPY *.json /opt/app/
 WORKDIR /opt/app
 ENTRYPOINT ["python", "/opt/app/publish.py"]
 
