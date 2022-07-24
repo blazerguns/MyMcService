@@ -27,4 +27,7 @@ query = '''
          }
          '''
 response = h.custom_query(query)
-print(json.dumps(response, indent=4))
+json_object = json.dumps(response, indent=4)
+# Writing to sample.json
+with open("../publish_result/sca_result.json", "w") as outfile:
+   outfile.write(json_object)
