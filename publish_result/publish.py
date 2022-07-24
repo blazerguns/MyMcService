@@ -26,9 +26,10 @@ def publish():
    pullid = os.environ.get("PULL", "")
    print("Branch " + branch + " Token " + token + " pull id "+ pullid)
 
-   pullid = "1"
-   if (pullid == ""):
+   if ('pull' not in branch):
+      print("Nothing to publish")
       return 0
+
    # Open the pylint file
    if os.path.isfile("pylint_results.json") and os.access("pylint_results.json", os.R_OK):
       # checks if file exists
