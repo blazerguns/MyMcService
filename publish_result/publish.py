@@ -61,5 +61,20 @@ def publish():
          }
          send_data(payload, pullid, token)
 
+   # Open the sca file
+   if os.path.isfile("sca_result.json") and os.access("sca_result.json", os.R_OK):
+      # checks if file exists
+      with open('sca_result.json') as json_file:
+         json_data = json.load(json_file)
+         table_data = ''
+         header = "SCA Result:\n| Type | Message |\n--- | --- |\n"
+         for entry in json_data["repository"]["vulnerabilityAlerts"]["nodes"]:
+            table_data += "| {type} | {message} |\n".format(type=entry['securityVulnerability']['package']['name'],
+                                                            message=entry['securityVulnerability']['advisory']['description'])
+         payload = {
+            "body": header + table_data
+         }
+         send_data(payload, pullid, token)
+
 if __name__ == '__main__':
     publish()
