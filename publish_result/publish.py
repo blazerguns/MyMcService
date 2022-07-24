@@ -70,7 +70,7 @@ def publish():
          header = "SCA Result:\n| Type | Message |\n--- | --- |\n"
          for entry in json_data["repository"]["vulnerabilityAlerts"]["nodes"]:
             table_data += "| {type} | {message} |\n".format(type=entry['securityVulnerability']['package']['name'],
-                                                            message=entry['securityVulnerability']['advisory']['description'])
+                                                            message=entry['securityVulnerability']['advisory']['description'].replace("\n", ""))
          payload = {
             "body": header + table_data
          }
