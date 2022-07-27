@@ -84,8 +84,8 @@ app.get('/me', function (req, res) {
       if (d.data["status"] === "denied") {
         return d
       } else {
-        return axios.get('http://iserv:3000/identity?fields=' + fields + '&id=' + d.data["id"])
-        //return axios.get('http://iserv:3000/identity', { params: {fields: fields, id: d.data["id"]}})
+        //return axios.get('http://iserv:3000/identity?fields=' + fields + '&id=' + d.data["id"])
+        return axios.get('http://iserv:3000/identity', { params: {fields: fields, id: d.data["id"]}})
       }
     })
     .then(d => {
