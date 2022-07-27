@@ -14,7 +14,7 @@ def hello():
         if (result['status'] == "denied"):
             return jsonify({"status": "resource denied"}), 200
     except requests.exceptions.RequestException:
-        print("Error at resource check")
+        print("Error at resource check at request")
         return jsonify({"status": "resource denied"}), 200
     
     responseData = {"some": "valuable resource for id {resid_id}".format(resid_id=resid_id)}
